@@ -9,11 +9,15 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Update pip
+          command: |
+            python3 -m pip install --upgrade pip
+
+      - run:
           name: install dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            python3 -m pip install --upgrade pip
             pip install -r requirements.txt
 
       - run:
